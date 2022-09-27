@@ -2,17 +2,26 @@
 let choicesAvailableDiv = document.querySelector("#choicesAvailable");
 let resultDiv = document.querySelector("#result");
 let userChoiceDiv = document.querySelector("#userChoice");
-let opponnentChoiceDiv = document.querySelector("#opponnentChoice");
+let opponentChoiceDiv = document.querySelector("#opponentChoice");
 let displayTurnDiv = document.querySelector("#displayTurn");
+let playerNameDiv = document.querySelector("#playerName");
+let opponentNameDiv = document.querySelector("#opponentName");
 
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
 
 let playerName = "Player1";
-let opponentName = "Opponnent";
+let opponentName = "Opponent";
 
 let currentPlayer = playerName;
 
+let displayPlayerName = ()=> {
+    playerNameDiv.innerHTML = `Player Name: ${playerName}`;
+    opponentNameDiv.innerHTML = `Opponent Name: ${opponentName}`;
+}
+
+// DEFAULT CALLS::
+displayPlayerName();
 // set player's turn by default
 displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
 
@@ -21,7 +30,7 @@ let handleChoice = (e) => {
     userChoiceDiv.innerHTML = `user's choice: ${userChoice}`;
 
     let opponentChoice = getOpponentChoice();
-    opponnentChoiceDiv.innerHTML = `opponent's choice: ${opponentChoice}`;
+    opponentChoiceDiv.innerHTML = `opponent's choice: ${opponentChoice}`;
 
     currentPlayer = decideTurn(currentPlayer);
     displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
@@ -29,7 +38,7 @@ let handleChoice = (e) => {
     getResult(userChoice, opponentChoice);
 }
 
-// get choice of opponnent by randomly selecting from available choices
+// get choice of opponent by randomly selecting from available choices
 let getOpponentChoice = () => {
     return choicesAvailable[(Math.floor(Math.random() * choicesAvailable.length))];
 }
