@@ -7,6 +7,11 @@ let opponnentChoiceDiv = document.querySelector("#opponnentChoice");
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
 
+let currentPlayer = "";
+
+let playerName = "Player1";
+let opponentName = "Opponnent";
+
 
 let handleChoice = (e) => {
     let userChoice = e.target.innerHTML;
@@ -14,6 +19,9 @@ let handleChoice = (e) => {
 
     let opponentChoice = getOpponentChoice();
     opponnentChoiceDiv.innerHTML = `opponent's choice: ${opponentChoice}`;
+
+    currentPlayer = decideTurn(currentPlayer);
+    console.log(`current player : ${currentPlayer}'s turn`);
 
     getResult(userChoice, opponentChoice);
 }
@@ -54,4 +62,13 @@ let getResult = (userChoice, opponentChoice) => {
         default:
             break;
     }
+}
+
+let decideTurn = (currentPlayer) => {
+    if (currentPlayer=="" || currentPlayer == playerName){
+        currentPlayer = opponentName;
+    }else {
+        currentPlayer = playerName;
+    }
+    return currentPlayer;
 }
