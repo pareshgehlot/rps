@@ -10,11 +10,17 @@ let opponentNameDiv = document.querySelector("#opponentName");
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
 
+// names of players
 let playerName = "Player1";
 let opponentName = "Opponent";
 
+// score of players
+let playerScore = 0;
+let opponentScore = 0;
+
 let currentPlayer = playerName;
 
+// display players names
 let displayPlayerName = ()=> {
     playerNameDiv.innerHTML = `Player Name: ${playerName}`;
     opponentNameDiv.innerHTML = `Opponent Name: ${opponentName}`;
@@ -36,6 +42,8 @@ let handleChoice = (e) => {
     displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
 
     getResult(userChoice, opponentChoice);
+    console.log(`Player Score: ${playerScore}`);
+    console.log(`Opponent Score: ${opponentScore}`);
 }
 
 // get choice of opponent by randomly selecting from available choices
@@ -59,11 +67,13 @@ let getResult = (userChoice, opponentChoice) => {
         case 'paperrock':
         case 'rockscissor':
         case 'scissorpaper':
+            playerScore++;
             resultDiv.innerHTML = `User Won, Opponent lost`;
             break;
         case 'rockpaper':
         case 'scissorrock':
         case 'paperscissor':
+            opponentScore++;
             resultDiv.innerHTML = `User lost, Opponent Won`;
             break;
         case 'rockrock':
