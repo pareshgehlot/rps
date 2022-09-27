@@ -1,6 +1,8 @@
 // getting dom elements
 let choicesAvailableDiv = document.querySelector("#choicesAvailable");
 let resultDiv = document.querySelector("#result");
+let userChoiceDiv = document.querySelector("#userChoice");
+let opponnentChoiceDiv = document.querySelector("#opponnentChoice");
 
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
@@ -8,7 +10,11 @@ let choicesAvailable = ['rock', 'paper', 'scissor'];
 
 let handleChoice = (e) => {
     let userChoice = e.target.innerHTML;
+    userChoiceDiv.innerHTML = `user's choice: ${userChoice}`;
+
     let opponentChoice = getOpponentChoice();
+    opponnentChoiceDiv.innerHTML = `opponent's choice: ${opponentChoice}`;
+
     getResult(userChoice, opponentChoice);
 }
 
