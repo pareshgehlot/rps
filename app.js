@@ -6,7 +6,12 @@ let resultDiv = document.querySelector("#result");
 let choicesAvailable = ['rock', 'paper', 'scissor'];
 
 let handleChoice = (e) => {
-    console.log(`you clicked : ${e.target.innerHTML}`)
+    console.log(`you clicked : ${e.target.innerHTML}`);
+    console.log(`opponent's choice : ${getOpponentChoice()}`);
+}
+
+let getOpponentChoice = () => {
+    return choicesAvailable[(Math.floor(Math.random() * choicesAvailable.length))];
 }
 
 // fill the dom with choices
