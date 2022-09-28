@@ -14,6 +14,9 @@ let savedGamesDiv = document.querySelector("#savedGames");
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
 
+// total players
+let totalPlayers = 1;
+
 // names of players
 let playerName = "Player1";
 let opponentName = "Opponent";
@@ -27,16 +30,28 @@ let savedGames = [];
 
 let currentPlayer = playerName;
 
+// set total players
+let setTotalPlayers = () => {
+    totalPlayers = prompt("Please let us know total number of players");
+    while(totalPlayers>2){
+        setTotalPlayers();
+    }
+}
+
 // display players names
 let displayPlayerName = ()=> {
     playerNameDiv.innerHTML = `Player Name: ${playerName}`;
     opponentNameDiv.innerHTML = `Opponent Name: ${opponentName}`;
 }
 
-// DEFAULT CALLS::
+// DEFAULT CALLS:: STARTS
+setTotalPlayers();
 displayPlayerName();
 // set player's turn by default
 displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
+
+
+// DEFAULT CALLS:: ENDS
 
 let handleChoice = (e) => {
 
