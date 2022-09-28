@@ -9,6 +9,7 @@ let opponentNameDiv = document.querySelector("#opponentName");
 let playerScoreDiv = document.querySelector("#playerScore");
 let opponentScoreDiv = document.querySelector("#opponentScore");
 let saveGameButton = document.querySelector("#saveGame");
+let savedGamesDiv = document.querySelector("#savedGames");
 
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
@@ -112,5 +113,17 @@ let saveGame = (e) => {
         opponentScore
     }
     savedGames.push(scoresObject);
-    console.log('game saved', savedGames);
+    let savedGamesHtml="";
+    savedGamesHtml+="<table>";
+    savedGames.forEach((game, index)=>{
+            savedGamesHtml+="<tr>";
+                savedGamesHtml+=`<th colspan='2'>Game: ${index+1}</th>`;
+            savedGamesHtml+="</tr>";
+            savedGamesHtml+="<tr>";
+                savedGamesHtml+=`<td>Player Score: ${game.playerScore}</td>`;
+                savedGamesHtml+=`<td>Opponent Score: ${game.opponentScore}</td>`;
+        savedGamesHtml+="</tr>";
+    });
+    savedGamesHtml+="</table>";
+    savedGamesDiv.innerHTML = savedGamesHtml;
 }
