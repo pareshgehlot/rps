@@ -28,8 +28,6 @@ let opponentScore = 0;
 // saved games
 let savedGames = [];
 
-let currentPlayer = playerName;
-
 // set total players
 let setTotalPlayers = () => {
     totalPlayers = prompt("Please let us know total number of players");
@@ -55,6 +53,8 @@ let displayPlayerName = ()=> {
 setTotalPlayers();
 setPlayerNames();
 displayPlayerName();
+// set player's name after setting names of players
+let currentPlayer = playerName;
 // set player's turn by default
 displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
 
