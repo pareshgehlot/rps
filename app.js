@@ -68,17 +68,17 @@ let handleChoice = (e) => {
     saveGameButton.addEventListener('click', saveGame);
 
     let userChoice = e.target.innerHTML;
-    userChoiceDiv.innerHTML = `user's choice: ${userChoice}`;
+    userChoiceDiv.innerHTML = `${playerName}'s choice: ${userChoice}`;
 
     let opponentChoice = getOpponentChoice();
-    opponentChoiceDiv.innerHTML = `opponent's choice: ${opponentChoice}`;
+    opponentChoiceDiv.innerHTML = `${opponentName}'s choice: ${opponentChoice}`;
 
     currentPlayer = decideTurn(currentPlayer);
     displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
 
     getResult(userChoice, opponentChoice);
-    playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
-    opponentScoreDiv.innerHTML = `Opponent Score: ${opponentScore}`;
+    playerScoreDiv.innerHTML = `${playerName} Score: ${playerScore}`;
+    opponentScoreDiv.innerHTML = `${opponentName} Score: ${opponentScore}`;
 }
 
 // get choice of opponent by randomly selecting from available choices
@@ -103,13 +103,13 @@ let getResult = (userChoice, opponentChoice) => {
         case 'rockscissor':
         case 'scissorpaper':
             playerScore++;
-            resultDiv.innerHTML = `User Won, Opponent lost`;
+            resultDiv.innerHTML = `${playerName} Won, ${opponentName} lost`;
             break;
         case 'rockpaper':
         case 'scissorrock':
         case 'paperscissor':
             opponentScore++;
-            resultDiv.innerHTML = `User lost, Opponent Won`;
+            resultDiv.innerHTML = `${playerName} lost, ${opponentName} Won`;
             break;
         case 'rockrock':
         case 'scissorscissor':
