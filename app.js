@@ -41,6 +41,7 @@ let handleChoice = (e) => {
 
     // displaying saveGame button once any choice is selected
     saveGameButton.style.display = "block";
+    saveGameButton.addEventListener('click', saveGame);
 
     let userChoice = e.target.innerHTML;
     userChoiceDiv.innerHTML = `user's choice: ${userChoice}`;
@@ -103,4 +104,8 @@ let decideTurn = (currentPlayer) => {
         currentPlayer = playerName;
     }
     return currentPlayer;
+}
+
+let saveGame = (e) => {
+    console.log('game saved');
 }
