@@ -8,7 +8,7 @@ let playerNameDiv = document.querySelector("#playerName");
 let opponentNameDiv = document.querySelector("#opponentName");
 let playerScoreDiv = document.querySelector("#playerScore");
 let opponentScoreDiv = document.querySelector("#opponentScore");
-let saveGameDiv = document.querySelector("#saveGame");
+let saveGameButton = document.querySelector("#saveGame");
 
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
@@ -40,7 +40,7 @@ displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
 let handleChoice = (e) => {
 
     // displaying saveGame button once any choice is selected
-    saveGameDiv.style.display = "block";
+    saveGameButton.style.display = "block";
 
     let userChoice = e.target.innerHTML;
     userChoiceDiv.innerHTML = `user's choice: ${userChoice}`;
