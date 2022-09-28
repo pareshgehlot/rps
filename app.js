@@ -38,6 +38,13 @@ let setTotalPlayers = () => {
     }
 }
 
+// set player names
+let setPlayerNames = () => {
+    for(let counter=1; counter<=totalPlayers; counter++){
+        counter===1?playerName = prompt(`Please enter name for Player ${counter}`): opponentName = prompt(`Please enter name for Player ${counter}`)
+    }
+}
+
 // display players names
 let displayPlayerName = ()=> {
     playerNameDiv.innerHTML = `Player Name: ${playerName}`;
@@ -46,6 +53,7 @@ let displayPlayerName = ()=> {
 
 // DEFAULT CALLS:: STARTS
 setTotalPlayers();
+setPlayerNames();
 displayPlayerName();
 // set player's turn by default
 displayTurnDiv.innerHTML = `current player : ${currentPlayer}'s turn`;
