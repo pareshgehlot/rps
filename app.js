@@ -22,7 +22,7 @@ let playerScore = 0;
 let opponentScore = 0;
 
 // saved games
-let savedGames = {};
+let savedGames = [];
 
 let currentPlayer = playerName;
 
@@ -107,5 +107,10 @@ let decideTurn = (currentPlayer) => {
 }
 
 let saveGame = (e) => {
-    console.log('game saved');
+    let scoresObject = {
+        playerScore,
+        opponentScore
+    }
+    savedGames.push(scoresObject);
+    console.log('game saved', savedGames);
 }
