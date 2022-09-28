@@ -113,7 +113,13 @@ let saveGame = (e) => {
         opponentScore
     }
     savedGames.push(scoresObject);
+    displaySavedGames(savedGames);
+}
+
+let displaySavedGames = (savedGames) => {
     let savedGamesHtml="";
+    savedGamesHtml+="<hr>";
+    savedGamesHtml+="<h3>Saved Games</h3>";
     savedGamesHtml+="<table>";
     savedGames.forEach((game, index)=>{
             savedGamesHtml+="<tr>";
