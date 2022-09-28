@@ -1,3 +1,19 @@
 #choicesAvailable button {
     margin-right: 5px;
 }
+
+#playerNamesContainer {
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.playerNames {
+    font-weight: bold
+}
+
+#displayTurn {
+    margin-top: 5px;
+}

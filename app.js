@@ -31,7 +31,7 @@ let savedGames = [];
 // set total players
 let setTotalPlayers = () => {
     totalPlayers = prompt("Please let us know total number of players");
-    while(isNaN(totalPlayers) || totalPlayers>2){
+    while((totalPlayers=="") || isNaN(totalPlayers) || totalPlayers>2){
         setTotalPlayers();
     }
 }
