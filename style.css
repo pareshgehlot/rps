@@ -17,3 +17,24 @@
 #displayTurn {
     margin-top: 5px;
 }
+
+.win {
+    border: 5px solid green;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.lose {
+    border: 5px solid red;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.draw {
+    border: 5px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}

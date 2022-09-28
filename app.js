@@ -10,6 +10,7 @@ let playerScoreDiv = document.querySelector("#playerScore");
 let opponentScoreDiv = document.querySelector("#opponentScore");
 let saveGameButton = document.querySelector("#saveGame");
 let savedGamesDiv = document.querySelector("#savedGames");
+let playerNamesContainerDiv = document.querySelector("#playerNamesContainer");
 
 // available choices 
 let choicesAvailable = ['rock', 'paper', 'scissor'];
@@ -41,6 +42,7 @@ let setPlayerNames = () => {
     for(let counter=1; counter<=totalPlayers; counter++){
         counter===1?playerName = prompt(`Please enter name for Player ${counter}`): opponentName = prompt(`Please enter name for Player ${counter}`)
     }
+    playerNamesContainerDiv.style.display = "block";
 }
 
 // display players names
@@ -104,17 +106,26 @@ let getResult = (userChoice, opponentChoice) => {
         case 'scissorpaper':
             playerScore++;
             resultDiv.innerHTML = `${playerName} Won, ${opponentName} lost`;
+            resultDiv.classList.add("win");
+            resultDiv.classList.remove("lose");
+            resultDiv.classList.remove("draw");
             break;
         case 'rockpaper':
         case 'scissorrock':
         case 'paperscissor':
             opponentScore++;
             resultDiv.innerHTML = `${playerName} lost, ${opponentName} Won`;
+            resultDiv.classList.remove("win");
+            resultDiv.classList.add("lose");
+            resultDiv.classList.remove("draw");
             break;
         case 'rockrock':
         case 'scissorscissor':
         case 'paperpaper':
             resultDiv.innerHTML = `It's a draw!`;
+            resultDiv.classList.remove("win");
+            resultDiv.classList.remove("lose");
+            resultDiv.classList.add("draw");            
             break;
         default:
             break;
